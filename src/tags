@@ -1,0 +1,217 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Box	x_window.c	/^	GtkWidget * Box;$/;"	m	struct:_XWindowPrivate	file:	access:public
+CC	Makefile	/^CC = gcc$/;"	m
+DEFAULT_TITLE	definitions.h	13;"	d
+ExitItem	x_menubar.c	/^    GtkWidget * ExitItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+LIB_F	Makefile	/^LIB_F = definitions.h x_menubar.h x_menubar.c x_button.h x_linkedlist.h x_linkedlist.c x_button.c x_notebook.h x_notebook.c x_window.h x_window.c x_editor.h x_editor.c$/;"	m
+LIB_O	Makefile	/^LIB_O = x_menubar.o x_linkedlist.o x_button.o x_notebook.o x_window.o x_editor.o$/;"	m
+MAIN	Makefile	/^MAIN = main.c$/;"	m
+NewItem	x_menubar.c	/^    GtkWidget * NewItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+OBJ	Makefile	/^OBJ = ..\/xeditor$/;"	m
+OpenItem	x_menubar.c	/^    GtkWidget * OpenItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+PKG_CONFIG	Makefile	/^PKG_CONFIG = `pkg-config --libs --cflags gtk+-3.0`$/;"	m
+PROP_0	x_button.c	/^    PROP_0,$/;"	e	enum:__anon1	file:
+PROP_PAGE_POS	x_button.c	/^    PROP_PAGE_POS$/;"	e	enum:__anon1	file:
+SaveAsItem	x_menubar.c	/^    GtkWidget * SaveAsItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+SaveItem	x_menubar.c	/^    GtkWidget * SaveItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+TRASH	Makefile	/^TRASH = x_menubar.h.gch x_linkedlist.h.gch x_button.h.gch x_notebook.h.gch x_window.h.gch x_editor.h.gch definitions.h.gch$/;"	m
+XButton	x_button.h	/^typedef struct _XButton         XButton;$/;"	t	typeref:struct:_XButton
+XButtonClass	x_button.h	/^typedef struct _XButtonClass    XButtonClass;$/;"	t	typeref:struct:_XButtonClass
+XButtonPrivate	x_button.h	/^typedef struct _XButtonPrivate  XButtonPrivate;$/;"	t	typeref:struct:_XButtonPrivate
+XEditor	x_editor.h	/^typedef struct _XEditor XEditor;$/;"	t	typeref:struct:_XEditor
+XEditorClass	x_editor.h	/^typedef struct _XEditorClass XEditorClass;$/;"	t	typeref:struct:_XEditorClass
+XEditorPrivate	x_editor.h	/^typedef struct _XEditorPrivate XEditorPrivate;$/;"	t	typeref:struct:_XEditorPrivate
+XLinkedList	x_linkedlist.h	/^typedef struct _XLinkedList XLinkedList;$/;"	t	typeref:struct:_XLinkedList
+XMenuAbout	x_menubar.h	/^    XMenuAbout,$/;"	e	enum:_XMenuType
+XMenuEdit	x_menubar.h	/^    XMenuEdit,$/;"	e	enum:_XMenuType
+XMenuFile	x_menubar.h	/^    XMenuFile,$/;"	e	enum:_XMenuType
+XMenuType	x_menubar.h	/^typedef enum _XMenuType XMenuType;$/;"	t	typeref:enum:_XMenuType
+XMenuView	x_menubar.h	/^    XMenuView,$/;"	e	enum:_XMenuType
+XMenubar	x_menubar.h	/^typedef struct _XMenubar    XMenubar;$/;"	t	typeref:struct:_XMenubar
+XMenubarClass	x_menubar.h	/^typedef struct _XMenubarClass XMenubarClass;$/;"	t	typeref:struct:_XMenubarClass
+XMenubarPrivate	x_menubar.h	/^typedef struct _XMenubarPrivate XMenubarPrivate;$/;"	t	typeref:struct:_XMenubarPrivate
+XNotebook	x_notebook.h	/^typedef struct _XNotebook           XNotebook;$/;"	t	typeref:struct:_XNotebook
+XNotebookClass	x_notebook.h	/^typedef struct _XNotebookClass      XNotebookClass;$/;"	t	typeref:struct:_XNotebookClass
+XNotebookPrivate	x_notebook.h	/^typedef struct _XNotebookPrivate    XNotebookPrivate;$/;"	t	typeref:struct:_XNotebookPrivate
+XWindow	x_window.h	/^typedef struct _XWindow XWindow;$/;"	t	typeref:struct:_XWindow
+XWindowClass	x_window.h	/^typedef struct _XWindowClass XWindowClass;$/;"	t	typeref:struct:_XWindowClass
+XWindowPrivate	x_window.h	/^typedef struct _XWindowPrivate XWindowPrivate;$/;"	t	typeref:struct:_XWindowPrivate
+X_BUTTON	x_button.h	46;"	d
+X_BUTTON_CLASS	x_button.h	47;"	d
+X_BUTTON_GET_CLASS	x_button.h	50;"	d
+X_BUTTON_GET_PRIVATE	x_button.c	34;"	d	file:
+X_EDITOR	x_editor.h	28;"	d
+X_EDITOR_CLASS	x_editor.h	29;"	d
+X_EDITOR_GET_CLASS	x_editor.h	32;"	d
+X_EDITOR_GET_PRIVATE	x_editor.c	30;"	d	file:
+X_IS_BUTTON	x_button.h	48;"	d
+X_IS_BUTTON_CLASS	x_button.h	49;"	d
+X_IS_EDITOR	x_editor.h	30;"	d
+X_IS_EDITOR_CLASS	x_editor.h	31;"	d
+X_IS_MENUBAR	x_menubar.h	31;"	d
+X_IS_MENUBAR_CLASS	x_menubar.h	32;"	d
+X_IS_NOTEBOOK	x_notebook.h	31;"	d
+X_IS_NOTEBOOK_CLASS	x_notebook.h	32;"	d
+X_IS_WINDOW	x_window.h	31;"	d
+X_IS_WINDOW_CLASS	x_window.h	32;"	d
+X_MENUBAR	x_menubar.h	29;"	d
+X_MENUBAR_CLASS	x_menubar.h	30;"	d
+X_MENUBAR_GET_CLASS	x_menubar.h	33;"	d
+X_MENUBAR_GET_PRIVATE	x_menubar.c	34;"	d	file:
+X_NOTEBOOK	x_notebook.h	29;"	d
+X_NOTEBOOK_CLASS	x_notebook.h	30;"	d
+X_NOTEBOOK_GET_CLASS	x_notebook.h	33;"	d
+X_NOTEBOOK_GET_PRIVATE	x_notebook.c	33;"	d	file:
+X_TYPE_BUTTON	x_button.h	45;"	d
+X_TYPE_EDITOR	x_editor.h	27;"	d
+X_TYPE_MENUBAR	x_menubar.h	28;"	d
+X_TYPE_NOTEBOOK	x_notebook.h	28;"	d
+X_TYPE_WINDOW	x_window.h	28;"	d
+X_WINDOW	x_window.h	29;"	d
+X_WINDOW_CLASS	x_window.h	30;"	d
+X_WINDOW_GET_CLASS	x_window.h	33;"	d
+X_WINDOW_GET_PRIVATE	x_window.c	30;"	d	file:
+_DEFINITIONS_H_	definitions.h	2;"	d
+_XButton	x_button.h	/^struct _XButton {$/;"	s
+_XButton::parent_instance	x_button.h	/^    GtkButton parent_instance;$/;"	m	struct:_XButton	access:public
+_XButton::priv	x_button.h	/^    XButtonPrivate * priv;$/;"	m	struct:_XButton	access:public
+_XButtonClass	x_button.h	/^struct _XButtonClass {$/;"	s
+_XButtonClass::parent_class	x_button.h	/^    GtkButtonClass parent_class;$/;"	m	struct:_XButtonClass	access:public
+_XButtonPrivate	x_button.c	/^struct _XButtonPrivate {$/;"	s	file:
+_XButtonPrivate::page_pos	x_button.c	/^    guint page_pos;$/;"	m	struct:_XButtonPrivate	file:	access:public
+_XEditor	x_editor.h	/^struct _XEditor$/;"	s
+_XEditor::parent_instance	x_editor.h	/^	GObject parent_instance;$/;"	m	struct:_XEditor	access:public
+_XEditor::priv	x_editor.h	/^	XEditorPrivate *priv;$/;"	m	struct:_XEditor	access:public
+_XEditorClass	x_editor.h	/^struct _XEditorClass$/;"	s
+_XEditorClass::parent_class	x_editor.h	/^	GObjectClass parent_class;$/;"	m	struct:_XEditorClass	access:public
+_XEditorPrivate	x_editor.c	/^struct _XEditorPrivate$/;"	s	file:
+_XEditorPrivate::xWindow	x_editor.c	/^    GtkWidget * xWindow;$/;"	m	struct:_XEditorPrivate	file:	access:public
+_XLinkedList	x_linkedlist.h	/^struct _XLinkedList {$/;"	s
+_XLinkedList::begin	x_linkedlist.h	/^    info * begin;$/;"	m	struct:_XLinkedList	access:public
+_XLinkedList::counter	x_linkedlist.h	/^    guint counter;$/;"	m	struct:_XLinkedList	access:public
+_XLinkedList::end	x_linkedlist.h	/^    info * end;$/;"	m	struct:_XLinkedList	access:public
+_XMenuType	x_menubar.h	/^enum _XMenuType {$/;"	g
+_XMenubar	x_menubar.h	/^struct _XMenubar {$/;"	s
+_XMenubar::parent_instance	x_menubar.h	/^    GtkMenuBar parent_instance;$/;"	m	struct:_XMenubar	access:public
+_XMenubar::priv	x_menubar.h	/^    XMenubarPrivate * priv;$/;"	m	struct:_XMenubar	access:public
+_XMenubarClass	x_menubar.h	/^struct _XMenubarClass {$/;"	s
+_XMenubarClass::parent_class	x_menubar.h	/^    GtkMenuBarClass parent_class;$/;"	m	struct:_XMenubarClass	access:public
+_XMenubarPrivate	x_menubar.c	/^struct _XMenubarPrivate {$/;"	s	file:
+_XMenubarPrivate::ExitItem	x_menubar.c	/^    GtkWidget * ExitItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XMenubarPrivate::NewItem	x_menubar.c	/^    GtkWidget * NewItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XMenubarPrivate::OpenItem	x_menubar.c	/^    GtkWidget * OpenItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XMenubarPrivate::SaveAsItem	x_menubar.c	/^    GtkWidget * SaveAsItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XMenubarPrivate::SaveItem	x_menubar.c	/^    GtkWidget * SaveItem;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XMenubarPrivate::accel_g	x_menubar.c	/^    GtkAccelGroup * accel_g;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+_XNotebook	x_notebook.h	/^struct _XNotebook {$/;"	s
+_XNotebook::parent_intance	x_notebook.h	/^    GtkNotebook parent_intance;$/;"	m	struct:_XNotebook	access:public
+_XNotebook::priv	x_notebook.h	/^    XNotebookPrivate * priv;$/;"	m	struct:_XNotebook	access:public
+_XNotebookClass	x_notebook.h	/^struct _XNotebookClass {$/;"	s
+_XNotebookClass::parent_class	x_notebook.h	/^    GtkNotebookClass parent_class;$/;"	m	struct:_XNotebookClass	access:public
+_XNotebookPrivate	x_notebook.c	/^struct _XNotebookPrivate {$/;"	s	file:
+_XNotebookPrivate::new_btn	x_notebook.c	/^    GtkWidget * new_btn;$/;"	m	struct:_XNotebookPrivate	file:	access:public
+_XNotebookPrivate::xl	x_notebook.c	/^    XLinkedList xl;$/;"	m	struct:_XNotebookPrivate	file:	access:public
+_XWindow	x_window.h	/^struct _XWindow$/;"	s
+_XWindow::parent_instance	x_window.h	/^	GtkWindow parent_instance;$/;"	m	struct:_XWindow	access:public
+_XWindow::priv	x_window.h	/^	XWindowPrivate *priv;$/;"	m	struct:_XWindow	access:public
+_XWindowClass	x_window.h	/^struct _XWindowClass$/;"	s
+_XWindowClass::parent_class	x_window.h	/^	GtkWindowClass parent_class;$/;"	m	struct:_XWindowClass	access:public
+_XWindowPrivate	x_window.c	/^struct _XWindowPrivate$/;"	s	file:
+_XWindowPrivate::Box	x_window.c	/^	GtkWidget * Box;$/;"	m	struct:_XWindowPrivate	file:	access:public
+_XWindowPrivate::xMenubar	x_window.c	/^    GtkWidget * xMenubar;$/;"	m	struct:_XWindowPrivate	file:	access:public
+_XWindowPrivate::xNotebook	x_window.c	/^    GtkWidget * xNotebook;$/;"	m	struct:_XWindowPrivate	file:	access:public
+_X_BUTTON_H_	x_button.h	38;"	d
+_X_EDITOR_H_	x_editor.h	21;"	d
+_X_LINKEDLIST_H_	x_linkedlist.h	22;"	d
+_X_MENUBAR_H_	x_menubar.h	21;"	d
+_X_NOTEBOOK_H_	x_notebook.h	21;"	d
+_X_WINDOW_H_	x_window.h	21;"	d
+_info	x_linkedlist.h	/^struct _info {$/;"	s
+_info::button	x_linkedlist.h	/^    GtkWidget * button;$/;"	m	struct:_info	access:public
+_info::filename	x_linkedlist.h	/^    gchar * filename;$/;"	m	struct:_info	access:public
+_info::next	x_linkedlist.h	/^    info * next;$/;"	m	struct:_info	access:public
+_info::tView	x_linkedlist.h	/^    GtkWidget * tView;$/;"	m	struct:_info	access:public
+accel_g	x_menubar.c	/^    GtkAccelGroup * accel_g;$/;"	m	struct:_XMenubarPrivate	file:	access:public
+begin	x_linkedlist.h	/^    info * begin;$/;"	m	struct:_XLinkedList	access:public
+button	x_linkedlist.h	/^    GtkWidget * button;$/;"	m	struct:_info	access:public
+counter	x_linkedlist.h	/^    guint counter;$/;"	m	struct:_XLinkedList	access:public
+end	x_linkedlist.h	/^    info * end;$/;"	m	struct:_XLinkedList	access:public
+filename	x_linkedlist.h	/^    gchar * filename;$/;"	m	struct:_info	access:public
+info	x_linkedlist.h	/^typedef struct _info info;$/;"	t	typeref:struct:_info
+main	main.c	/^main (int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+new_btn	x_notebook.c	/^    GtkWidget * new_btn;$/;"	m	struct:_XNotebookPrivate	file:	access:public
+next	x_linkedlist.h	/^    info * next;$/;"	m	struct:_info	access:public
+page_pos	x_button.c	/^    guint page_pos;$/;"	m	struct:_XButtonPrivate	file:	access:public
+parent_class	x_button.h	/^    GtkButtonClass parent_class;$/;"	m	struct:_XButtonClass	access:public
+parent_class	x_editor.h	/^	GObjectClass parent_class;$/;"	m	struct:_XEditorClass	access:public
+parent_class	x_menubar.h	/^    GtkMenuBarClass parent_class;$/;"	m	struct:_XMenubarClass	access:public
+parent_class	x_notebook.h	/^    GtkNotebookClass parent_class;$/;"	m	struct:_XNotebookClass	access:public
+parent_class	x_window.h	/^	GtkWindowClass parent_class;$/;"	m	struct:_XWindowClass	access:public
+parent_instance	x_button.h	/^    GtkButton parent_instance;$/;"	m	struct:_XButton	access:public
+parent_instance	x_editor.h	/^	GObject parent_instance;$/;"	m	struct:_XEditor	access:public
+parent_instance	x_menubar.h	/^    GtkMenuBar parent_instance;$/;"	m	struct:_XMenubar	access:public
+parent_instance	x_window.h	/^	GtkWindow parent_instance;$/;"	m	struct:_XWindow	access:public
+parent_intance	x_notebook.h	/^    GtkNotebook parent_intance;$/;"	m	struct:_XNotebook	access:public
+priv	x_button.h	/^    XButtonPrivate * priv;$/;"	m	struct:_XButton	access:public
+priv	x_editor.h	/^	XEditorPrivate *priv;$/;"	m	struct:_XEditor	access:public
+priv	x_menubar.h	/^    XMenubarPrivate * priv;$/;"	m	struct:_XMenubar	access:public
+priv	x_notebook.h	/^    XNotebookPrivate * priv;$/;"	m	struct:_XNotebook	access:public
+priv	x_window.h	/^	XWindowPrivate *priv;$/;"	m	struct:_XWindow	access:public
+tView	x_linkedlist.h	/^    GtkWidget * tView;$/;"	m	struct:_info	access:public
+xMenubar	x_window.c	/^    GtkWidget * xMenubar;$/;"	m	struct:_XWindowPrivate	file:	access:public
+xNotebook	x_window.c	/^    GtkWidget * xNotebook;$/;"	m	struct:_XWindowPrivate	file:	access:public
+xWindow	x_editor.c	/^    GtkWidget * xWindow;$/;"	m	struct:_XEditorPrivate	file:	access:public
+x_button_class_init	x_button.c	/^x_button_class_init (XButtonClass * klass)$/;"	f	file:	signature:(XButtonClass * klass)
+x_button_finalize	x_button.c	/^x_button_finalize (GObject * object)$/;"	f	file:	signature:(GObject * object)
+x_button_get_page_pos	x_button.c	/^x_button_get_page_pos (XButton * self)$/;"	f	signature:(XButton * self)
+x_button_get_property	x_button.c	/^x_button_get_property (GObject * object, guint prop_id, GValue * value, GParamSpec * pspec)$/;"	f	file:	signature:(GObject * object, guint prop_id, GValue * value, GParamSpec * pspec)
+x_button_init	x_button.c	/^x_button_init (XButton * self)$/;"	f	file:	signature:(XButton * self)
+x_button_new	x_button.c	/^x_button_new (void)$/;"	f	signature:(void)
+x_button_set_page_pos	x_button.c	/^x_button_set_page_pos (XButton * self, guint page_pos)$/;"	f	signature:(XButton * self, guint page_pos)
+x_button_set_property	x_button.c	/^x_button_set_property (GObject * object, guint prop_id, const GValue * value, GParamSpec * pspec)$/;"	f	file:	signature:(GObject * object, guint prop_id, const GValue * value, GParamSpec * pspec)
+x_editor_class_init	x_editor.c	/^x_editor_class_init (XEditorClass *klass)$/;"	f	file:	signature:(XEditorClass *klass)
+x_editor_finalize	x_editor.c	/^x_editor_finalize (GObject *object)$/;"	f	file:	signature:(GObject *object)
+x_editor_get_menubar	x_editor.c	/^x_editor_get_menubar (XEditor * self)$/;"	f	signature:(XEditor * self)
+x_editor_get_notebook	x_editor.c	/^x_editor_get_notebook (XEditor * self)$/;"	f	signature:(XEditor * self)
+x_editor_get_window	x_editor.c	/^x_editor_get_window (XEditor * self)$/;"	f	signature:(XEditor * self)
+x_editor_init	x_editor.c	/^x_editor_init (XEditor * self)$/;"	f	file:	signature:(XEditor * self)
+x_editor_menubar_connect_all_signals	x_editor.c	/^x_editor_menubar_connect_all_signals (XEditor * self)$/;"	f	signature:(XEditor * self)
+x_editor_new	x_editor.c	/^x_editor_new (void)$/;"	f	signature:(void)
+x_editor_show	x_editor.c	/^x_editor_show (XEditor * self)$/;"	f	signature:(XEditor * self)
+x_linkedlist_finalize	x_linkedlist.c	/^x_linkedlist_finalize (XLinkedList * xl)$/;"	f	signature:(XLinkedList * xl)
+x_linkedlist_get_element	x_linkedlist.c	/^x_linkedlist_get_element (XLinkedList * xl, guint page_pos)$/;"	f	signature:(XLinkedList * xl, guint page_pos)
+x_linkedlist_get_length	x_linkedlist.c	/^x_linkedlist_get_length (XLinkedList * xl)$/;"	f	signature:(XLinkedList * xl)
+x_linkedlist_init	x_linkedlist.c	/^x_linkedlist_init (XLinkedList * xl)$/;"	f	signature:(XLinkedList * xl)
+x_linkedlist_insert	x_linkedlist.c	/^x_linkedlist_insert (XLinkedList * xl, info * data)$/;"	f	signature:(XLinkedList * xl, info * data)
+x_linkedlist_remove	x_linkedlist.c	/^x_linkedlist_remove (XLinkedList * xl, info * data)$/;"	f	signature:(XLinkedList * xl, info * data)
+x_linkedlist_show	x_linkedlist.c	/^x_linkedlist_show (XLinkedList * xl)$/;"	f	signature:(XLinkedList * xl)
+x_linkedlist_sort	x_linkedlist.c	/^x_linkedlist_sort (XLinkedList * xl)$/;"	f	signature:(XLinkedList * xl)
+x_menubar_bindmenu	x_menubar.c	/^x_menubar_bindmenu (XMenubar * self, GtkWidget * MenuItem) $/;"	f	file:	signature:(XMenubar * self, GtkWidget * MenuItem)
+x_menubar_class_init	x_menubar.c	/^x_menubar_class_init (XMenubarClass * klass)$/;"	f	file:	signature:(XMenubarClass * klass)
+x_menubar_connect_newitem_signal	x_menubar.c	/^x_menubar_connect_newitem_signal (XMenubar * self, GtkWidget * widget)$/;"	f	signature:(XMenubar * self, GtkWidget * widget)
+x_menubar_file_new_callback	x_menubar.c	/^x_menubar_file_new_callback (GtkWidget * widget, gpointer data)$/;"	f	signature:(GtkWidget * widget, gpointer data)
+x_menubar_finalize	x_menubar.c	/^x_menubar_finalize (GObject * object)$/;"	f	file:	signature:(GObject * object)
+x_menubar_init	x_menubar.c	/^x_menubar_init(XMenubar * self)$/;"	f	file:	signature:(XMenubar * self)
+x_menubar_menu_new	x_menubar.c	/^x_menubar_menu_new (XMenubar * self, XMenuType type)$/;"	f	file:	signature:(XMenubar * self, XMenuType type)
+x_menubar_new	x_menubar.c	/^x_menubar_new (void)$/;"	f	signature:(void)
+x_notebook_append	x_notebook.c	/^x_notebook_append (XNotebook * self)$/;"	f	signature:(XNotebook * self)
+x_notebook_class_init	x_notebook.c	/^x_notebook_class_init (XNotebookClass * klass)$/;"	f	file:	signature:(XNotebookClass * klass)
+x_notebook_finalize	x_notebook.c	/^x_notebook_finalize (GObject * object)$/;"	f	file:	signature:(GObject * object)
+x_notebook_init	x_notebook.c	/^x_notebook_init (XNotebook * self)$/;"	f	file:	signature:(XNotebook * self)
+x_notebook_nbtn_callback	x_notebook.c	/^x_notebook_nbtn_callback (GtkWidget * widget, gpointer data)$/;"	f	signature:(GtkWidget * widget, gpointer data)
+x_notebook_nbtn_create	x_notebook.c	/^x_notebook_nbtn_create(XNotebook * self)$/;"	f	file:	signature:(XNotebook * self)
+x_notebook_new	x_notebook.c	/^x_notebook_new (void)$/;"	f	signature:(void)
+x_notebook_refresh	x_notebook.c	/^x_notebook_refresh (XNotebook * self)$/;"	f	signature:(XNotebook * self)
+x_notebook_remove_tab_callback	x_notebook.c	/^x_notebook_remove_tab_callback (GtkWidget * widget, gpointer data)$/;"	f	signature:(GtkWidget * widget, gpointer data)
+x_window_class_init	x_window.c	/^x_window_class_init (XWindowClass *klass)$/;"	f	file:	signature:(XWindowClass *klass)
+x_window_finalize	x_window.c	/^x_window_finalize (GObject *object)$/;"	f	file:	signature:(GObject *object)
+x_window_get_menubar	x_window.c	/^x_window_get_menubar (XWindow * self) $/;"	f	signature:(XWindow * self)
+x_window_get_notebook	x_window.c	/^x_window_get_notebook (XWindow * self)$/;"	f	signature:(XWindow * self)
+x_window_init	x_window.c	/^x_window_init (XWindow * self)$/;"	f	file:	signature:(XWindow * self)
+x_window_new	x_window.c	/^x_window_new (void)$/;"	f	signature:(void)
+xl	x_notebook.c	/^    XLinkedList xl;$/;"	m	struct:_XNotebookPrivate	file:	access:public
