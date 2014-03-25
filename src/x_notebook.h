@@ -17,6 +17,7 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #ifndef _X_NOTEBOOK_H_
 #define _X_NOTEBOOK_H_
 
@@ -32,6 +33,8 @@ G_BEGIN_DECLS
 #define X_IS_NOTEBOOK(obj)          (G_TYPE_CHECK_INSTANCE_TYPE((obj), X_TYPE_NOTEBOOK))
 #define X_IS_NOTEBOOK_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE((klass), X_TYPE_NOTEBOOK))
 #define X_NOTEBOOK_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS((obj), X_TYPE_NOTEBOOK, XNotebookClass))
+
+#define X_NOTEBOOK_TAB_GROUP          "same"
 
 typedef struct _XNotebookClass      XNotebookClass;
 typedef struct _XNotebook           XNotebook;
@@ -54,10 +57,14 @@ GtkWidget * x_notebook_new (void);
 
 // callbacks ::
 void x_notebook_nbtn_callback (GtkWidget * widget, gpointer data);
+void x_notebook_connect_openbutton_signals (XNotebook * self, gpointer data);
 void x_notebook_remove_tab_callback (GtkWidget * widget, gpointer data);
+void x_notebook_mark_file_as_saved_callback ( GtkWidget * widget, gpointer data);
 
 // getters ::
 XLinkedList * x_notebook_get_xlinkedlist (XNotebook * self);
+GtkClipboard * x_notebook_get_clipboard (XNotebook * self);
+
 // another methods ::
 void x_notebook_append (XNotebook * self);
 void x_notebook_refresh (XNotebook * self);

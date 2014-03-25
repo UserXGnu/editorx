@@ -68,7 +68,13 @@ GtkWidget * x_editor_get_notebook (XEditor * self);
  * Another methods ::
  */
 void x_editor_menubar_connect_all_signals (XEditor * self);
+void x_editor_notebook_connect_all_signals (XEditor * self);
+
 void x_editor_show (XEditor * self);
+void x_editor_save_current_content (GFile * file, const gchar * content);
+
+gchar * x_editor_load_file_content (GFile * file);
+
 G_END_DECLS
 
 #endif /* _X_EDITOR_H_ */

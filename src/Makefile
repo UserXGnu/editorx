@@ -1,4 +1,4 @@
-PKG_CONFIG = `pkg-config --libs --cflags gtk+-3.0`
+PKG_CONFIG = `pkg-config --libs --cflags gtk+-3.0 gtksourceview-3.0`
 CC = gcc
 LIB_F = definitions.h x_menubar.h x_menubar.c x_button.h x_linkedlist.h x_linkedlist.c x_button.c x_notebook.h x_notebook.c x_window.h x_window.c x_editor.h x_editor.c
 LIB_O = x_menubar.o x_linkedlist.o x_button.o x_notebook.o x_window.o x_editor.o

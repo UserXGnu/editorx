@@ -35,9 +35,15 @@ typedef struct _XLinkedList XLinkedList;
 
 struct _info {
 
+    GtkWidget * tab_label;
     GtkWidget * button;
-    GtkWidget * tView;
+    GtkWidget * sView;
+
+    gchar * filepath;
     gchar * filename;
+
+    gboolean saved;
+    gboolean s_dialog;
 
     info * next;
 
@@ -58,8 +64,21 @@ void x_linkedlist_show (XLinkedList * xl); // just for debug ::
 void x_linkedlist_finalize (XLinkedList * xl);
 void x_linkedlist_sort (XLinkedList * xl);
 
+void x_linkedlist_set_element_filename (info * data, const gchar * filename);
+void x_linkedlist_set_element_filepath (info * data, const gchar * path);
+void x_linkedlist_set_element_file_status (info * element, gboolean status);
+void x_linkedlist_set_element_save_status (info * element, gboolean status);
+
 info * x_linkedlist_get_element (XLinkedList * xl, guint page_pos);
+GtkWidget * x_linkedlist_get_element_tab_label (XLinkedList * xl, guint page_pos);
+GtkWidget * x_linkedlist_get_element_sview (XLinkedList * xl, guint page_pos);
+
 guint x_linkedlist_get_length (XLinkedList * xl);
+gboolean x_linkedlist_get_element_file_status (info * element);
+gboolean x_linkedlist_get_element_save_status (info * element);
+gchar * x_linkedlist_get_element_filepath (XLinkedList * xl, info * element, guint page_pos);
+gchar * x_linkedlist_get_element_filename (XLinkedList * xl, info * element, guint page_pos);
+
 
 G_END_DECLS
 

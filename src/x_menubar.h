@@ -20,8 +20,6 @@
 #ifndef _X_MENUBAR_H_
 #define _X_MENUBAR_H_
 
-#include <glib-object.h>
-#include <gtk/gtk.h>
 #include "definitions.h"
 
 G_BEGIN_DECLS
@@ -70,20 +68,34 @@ GtkWidget * x_menubar_new (void);
  */
 void x_menubar_file_new_callback (GtkWidget * widget, gpointer data);
 void x_menubar_file_save_callback (GtkWidget * widget, gpointer data);
+void x_menubar_load_file_callback (GtkWidget * widget, gpointer data);
 
-/*void x_menubar_file_open_callback (GtkWidget * widget, gpointer data);
-void x_menubar_file_save_as_callback (GtkWidget * widget, gpointer data);
-void x_menubar_file_close_callback (GtkWidget * widget, gpointer data);
-void x_menubar_file_exit_callback (GtkWidget * widget, gpointer data);*/
+void x_menubar_undo_callback (GtkWidget * widget, gpointer data);
+void x_menubar_redo_callback (GtkWidget * widget, gpointer data);
 
+void x_menubar_cut_callback (GtkWidget * widget, gpointer data);
+void x_menubar_copy_callback (GtkWidget * widget, gpointer data);
+void x_menubar_paste_callback (GtkWidget * widget, gpointer data);
+void x_menubar_selectall_callback (GtkWidget * widget, gpointer data);
+void x_menubar_clear_callback (GtkWidget * widget, gpointer data);
 
 /*
  * Methods ::
  */
 void x_menubar_connect_newitem_signal (XMenubar * self, GtkWidget * widget);
 void x_menubar_connect_saveitem_signal (XMenubar * self, GtkWidget * widget);
-G_END_DECLS
+void x_menubar_connect_openitem_signal (XMenubar * self, GtkWidget * widget);
 
+void x_menubar_connect_undoitem_signal (XMenubar * self, GtkWidget * widget);
+void x_menubar_connect_redoitem_signal (XMenubar * self, GtkWidget * widget);
+
+void x_menubar_connect_cutitem_signal (XMenubar * self, GtkWidget * widget);
+void x_menubar_connect_copyitem_signal (XMenubar * self, GtkWidget * widget);
+void x_menubar_connect_pasteitem_signal (XMenubar * self, GtkWidget * widget);
+void x_menubar_connect_selectallitem_signal (XMenubar * self, GtkWidget * widget);
+void x_menubar_connect_clearitem_signal (XMenubar * self, GtkWidget * widget);
+
+G_END_DECLS
 
 
 #endif /* _X_MENUBAR_H_*/

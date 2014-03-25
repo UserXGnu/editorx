@@ -36,9 +36,14 @@ x_editor_init (XEditor * self)
 {
 	XEditorPrivate * priv = X_EDITOR_GET_PRIVATE(self);
 
+#ifdef SET_HOME_PATH
+    SET_HOME_PATH;
+#endif
+
 	priv->xWindow = x_window_new ();
 
-    x_editor_menubar_connect_all_signals(self);
+    x_editor_menubar_connect_all_signals (self);
+    x_editor_notebook_connect_all_signals (self);
 
 }
 
@@ -103,18 +108,98 @@ x_editor_get_notebook (XEditor * self)
 void
 x_editor_menubar_connect_all_signals (XEditor * self)
 {
-   // XEditorPrivate * priv = X_EDITOR_GET_PRIVATE (self);
 
-    //x_notebook_append (X_NOTEBOOK(x_editor_get_notebook(self)));
-    //x_notebook_refresh (X_NOTEBOOK(x_editor_get_notebook(self)));a
-    x_menubar_connect_newitem_signal(X_MENUBAR(x_editor_get_menubar(self)),
-                                    x_editor_get_notebook(self));
-    x_menubar_connect_saveitem_signal (X_MENUBAR(x_editor_get_menubar(self)),
-				    x_editor_get_notebook(self));
+    x_menubar_connect_newitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_saveitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+				                    x_editor_get_notebook (self));
+
+    x_menubar_connect_openitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+
+    x_menubar_connect_undoitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_redoitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_cutitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_copyitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_pasteitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_selectallitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+
+    x_menubar_connect_clearitem_signal (X_MENUBAR (x_editor_get_menubar (self)),
+                                    x_editor_get_notebook (self));
+}
+
+void
+x_editor_notebook_connect_all_signals (XEditor * self)
+{
+
+    x_notebook_connect_openbutton_signal ( X_NOTEBOOK (x_editor_get_notebook (self)),
+                                          x_editor_get_notebook (self));
 }
 
 void
 x_editor_show (XEditor * self)
 {
     gtk_widget_show_all (x_editor_get_window (self));
+}
+
+void
+x_editor_save_current_content  (GFile * file, const gchar * content)
+{
+
+    GFileOutputStream * output_stream;
+    GDataOutputStream * data_output_stream;
+
+    output_stream = g_file_replace (file,
+                                    NULL, TRUE,
+                                    G_FILE_CREATE_REPLACE_DESTINATION,
+                                    NULL, NULL);
+    
+    data_output_stream = g_data_output_stream_new ( (GOutputStream *) output_stream);
+    g_data_output_stream_put_string (G_DATA_OUTPUT_STREAM (data_output_stream),
+                                     content, NULL, NULL);
+    g_output_stream_close ( (GOutputStream *) output_stream, NULL, NULL);
+    
+    g_object_unref (output_stream);
+    g_object_unref (data_output_stream);
+
+}
+
+gchar *
+x_editor_load_file_content (GFile * file) 
+{
+
+    GFileInputStream * input_stream;
+    GDataInputStream * data_input_stream;
+
+    gchar * content = NULL;
+
+    input_stream = g_file_read (file, NULL, NULL);
+    
+    data_input_stream = g_data_input_stream_new ( (GInputStream *) input_stream);
+
+
+    content = g_data_input_stream_read_upto ( G_DATA_INPUT_STREAM (data_input_stream),
+                                    "\0", -1,
+                                    NULL, NULL,
+                                    NULL);
+
+    g_input_stream_close ( (GInputStream *) input_stream, NULL, NULL);
+
+    g_object_unref (input_stream);
+    g_object_unref (data_input_stream);
+
+    return content;
 }

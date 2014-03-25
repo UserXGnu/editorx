@@ -1,5 +1,4 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  
-*/
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
  * x_notebook.c
  * Copyright (C) 2013 UserX <userx.gnu@gmail.com>
@@ -24,6 +23,8 @@
 struct _XNotebookPrivate {
 
     GtkWidget * new_btn;
+    GtkWidget * open_button;
+    GtkClipboard * clipboard;
     XLinkedList xl;
 
 };
@@ -43,7 +44,7 @@ G_DEFINE_TYPE (XNotebook, x_notebook, GTK_TYPE_NOTEBOOK);
  * another tabs ::
  */
 static void
-x_notebook_nbtn_create(XNotebook * self)
+x_notebook_nbtn_create (XNotebook * self)
 {
     XNotebookPrivate * priv = X_NOTEBOOK_GET_PRIVATE(self);
 
@@ -52,10 +53,18 @@ x_notebook_nbtn_create(XNotebook * self)
      * handler::
      */
     GtkWidget * label;
+    GtkWidget * _label;
     GtkWidget * image;
+    GtkWidget * hBox;
+    GtkWidget * vBox;
+    GtkWidget * vbox;
+    GtkWidget * open_button;
     GtkWidget * parent;
 
-    image = gtk_image_new_from_stock (GTK_STOCK_NEW, GTK_ICON_SIZE_MENU);
+    gchar * markup = g_markup_printf_escaped ("<span style=\"italic\">- Open a new file -</span>");
+
+
+    image = gtk_image_new_from_icon_name ("add", GTK_ICON_SIZE_MENU);
     priv->new_btn = gtk_button_new ();
     gtk_button_set_image (GTK_BUTTON(priv->new_btn), image);
     gtk_button_set_relief(GTK_BUTTON(priv->new_btn), GTK_RELIEF_NONE);
@@ -63,15 +72,37 @@ x_notebook_nbtn_create(XNotebook * self)
     gtk_widget_set_vexpand (priv->new_btn, TRUE);
     
     label = gtk_label_new (NULL);
+    gtk_label_set_markup (GTK_LABEL (label), markup);
+    _label = gtk_label_new ("- Welcome to XEditor -");
+    open_button = gtk_button_new_from_icon_name ("document-open", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_relief (GTK_BUTTON (open_button), GTK_RELIEF_NONE);
 
-    gtk_notebook_append_page (GTK_NOTEBOOK(self), label, priv->new_btn);
+    vBox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+    hBox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 5);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
+
+    gtk_box_pack_start (GTK_BOX (vBox), _label, FALSE, TRUE, 40);
+    gtk_box_pack_start (GTK_BOX (vBox), hBox, TRUE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (hBox), vbox, TRUE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (vbox), open_button, FALSE, FALSE, 5);
+
+
+    gtk_notebook_append_page (GTK_NOTEBOOK(self), vBox, priv->new_btn);
 
     parent = gtk_widget_get_parent (GTK_WIDGET(priv->new_btn));
 
     gtk_widget_set_can_focus (GTK_WIDGET(parent), FALSE);
+ 
+    priv->open_button = open_button;
+    priv->clipboard = gtk_clipboard_get (GDK_NONE);
 
     g_signal_connect (priv->new_btn, "clicked",
                       G_CALLBACK (x_notebook_nbtn_callback), self);
+
+    gtk_notebook_set_group_name (GTK_NOTEBOOK (self), X_NOTEBOOK_TAB_GROUP);
+    gtk_notebook_set_scrollable (GTK_NOTEBOOK (self), TRUE);
+ //   gtk_notebook_set_homogeneous_tabs (GTK_NOTEBOOK (self), FALSE);
     
 }
 
@@ -123,19 +154,14 @@ x_notebook_class_init (XNotebookClass * klass)
 
 
 /*
- * **@brief: Constructor that will class <x_notebook_init(XNotebook * self)>
+ * **@brief: Constructor from class <x_notebook_init(XNotebook * self)>
  * which will truly construct an instance object ::
  */
 GtkWidget *
 x_notebook_new (void)
 {
-    GTK_WIDGET(g_object_new (X_TYPE_NOTEBOOK, NULL));
+    return GTK_WIDGET(g_object_new (X_TYPE_NOTEBOOK, NULL));
 }
-
-
-
-
-
 
 
 
@@ -187,13 +213,42 @@ x_notebook_remove_tab_callback (GtkWidget * widget, gpointer data)
 
 }
 
+void
+x_notebook_mark_file_as_saved_callback (GtkWidget * widget, gpointer data)
+{
+    XLinkedList * xl;
+    info * element;
+    GtkWidget * tab_label;
+    guint page_pos;
+
+    xl = x_notebook_get_xlinkedlist (X_NOTEBOOK (data));
+
+    page_pos = gtk_notebook_get_current_page (GTK_NOTEBOOK (data));
+    element = x_linkedlist_get_element (xl, page_pos);
 
 
+    if (x_linkedlist_get_element_save_status (element) == FALSE) {
 
+        x_linkedlist_set_element_save_status (element, TRUE);
 
+        tab_label = x_linkedlist_get_element_tab_label (xl, page_pos);
 
+        gtk_label_set_label (GTK_LABEL (tab_label), g_strdup_printf ("%s*", 
+                             gtk_label_get_label (GTK_LABEL (tab_label))) );
 
+    }
 
+}
+
+void
+x_notebook_connect_openbutton_signal (XNotebook * self, gpointer data)
+{
+    XNotebookPrivate * priv = X_NOTEBOOK_GET_PRIVATE (self);
+
+    g_signal_connect(priv->open_button, "clicked", 
+                    G_CALLBACK (x_menubar_load_file_callback), data);
+    
+}
 
 
 
@@ -209,70 +264,105 @@ x_notebook_get_xlinkedlist (XNotebook * self)
 
     return &(priv->xl);
 }
+
+GtkClipboard * 
+x_notebook_get_clipboard (XNotebook * self)
+{
+    XNotebookPrivate * priv = X_NOTEBOOK_GET_PRIVATE (self);
+
+    return priv->clipboard;
+}
+
 /*
  * **@brief: A simple method to append a new tab to XNotebook ::
  */
 void
 x_notebook_append (XNotebook * self)
 {
+
     XNotebookPrivate * priv = X_NOTEBOOK_GET_PRIVATE (self);
 
     guint page_pos;
     guint i;
 
     info * element = (info *) g_malloc (sizeof (info));
-    GtkWidget * box;
-    GtkWidget * tab_label;
+    GtkWidget * box;   
     GtkWidget * stock_img;
-    GtkWidget * close_button; // It will be a XButton instance object ::
     GtkWidget * scrolled;
-    GtkWidget * tView;
-
+    GtkSourceBuffer * sBuffer;
+    GtkTextIter begin;
 
     box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 5);
 
-    tab_label = gtk_label_new (g_strdup_printf("Tab: %d",
-                x_linkedlist_get_length (&(priv->xl))));
+    element->tab_label = gtk_label_new (DEFAULT_TITLE (x_linkedlist_get_length (&(priv->xl))));
 
-    stock_img = gtk_image_new_from_stock (GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
-    close_button = x_button_new ();
-    x_button_set_page_pos (X_BUTTON(close_button),
-                           x_linkedlist_get_length (&(priv->xl)));
-    gtk_button_set_image (GTK_BUTTON (close_button), stock_img);
-    gtk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
+    stock_img = gtk_image_new_from_icon_name ("stock_close", GTK_ICON_SIZE_MENU);
 
-    element->button = GTK_WIDGET(close_button);
+    element->button = x_button_new ();
+    x_button_set_page_pos (X_BUTTON (element->button),
+                          x_linkedlist_get_length (&(priv->xl)));
+
+    gtk_button_set_image (GTK_BUTTON (element->button), stock_img);
+    gtk_button_set_relief (GTK_BUTTON (element->button), GTK_RELIEF_NONE);
 
     x_linkedlist_insert (&(priv->xl), element);
 
-    gtk_box_pack_start (GTK_BOX(box), tab_label, TRUE, TRUE, 0);
-    gtk_box_pack_start (GTK_BOX(box), close_button, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), element->tab_label, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (box), element->button, TRUE, TRUE, 0);
 
     gtk_widget_show_all (box);
 
     scrolled = gtk_scrolled_window_new (NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW(scrolled),
+    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled),
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 
-    tView = gtk_text_view_new ();
+    //element->tView = gtk_text_view_new ();
+    //tBuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (element->tView));
+    
+    sBuffer = gtk_source_buffer_new (NULL);
+    element->sView = gtk_source_view_new_with_buffer (sBuffer);
 
-    gtk_container_add (GTK_CONTAINER (scrolled), tView);
+
+    //gtk_widget_set_can_focus (element->tView, TRUE);
+    //gtk_widget_activate (element->tView);
+    //gtk_widget_grab_focus (element->tView);
+
+
+    gtk_widget_set_can_focus (element->sView, TRUE);
+    gtk_widget_activate (element->sView);
+    gtk_widget_grab_focus (element->sView);
+
+    //gtk_container_add (GTK_CONTAINER (scrolled), element->tView);
+    gtk_container_add (GTK_CONTAINER (scrolled), element->sView);
     gtk_widget_show_all (scrolled);
 
-    gtk_notebook_append_page (GTK_NOTEBOOK(self), scrolled, box);
+    gtk_notebook_append_page (GTK_NOTEBOOK (self), scrolled, box);
 
-    element->tView = tView;
-    x_notebook_refresh (X_NOTEBOOK(self));
+    x_notebook_refresh (X_NOTEBOOK (self));
+
+    //gtk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (tBuffer), &begin);
+    //gtk_text_buffer_place_cursor (GTK_TEXT_BUFFER (tBuffer), &begin);
 
     page_pos = x_linkedlist_get_length (&(priv->xl));
     
     for (i = 1; i <= page_pos; i++) {
-        gtk_notebook_next_page (GTK_NOTEBOOK(self));
+        gtk_notebook_next_page (GTK_NOTEBOOK (self));
     }
 
-    g_signal_connect(close_button, "clicked",
-                    G_CALLBACK(x_notebook_remove_tab_callback),
+    x_linkedlist_set_element_file_status (element, FALSE);
+    x_linkedlist_set_element_save_status (element, FALSE);
+
+    g_signal_connect (GTK_BUTTON (element->button), "clicked",
+                    G_CALLBACK (x_notebook_remove_tab_callback),
                     self);
+
+    /*g_signal_connect (tBuffer, "changed", 
+                    G_CALLBACK (x_notebook_mark_file_as_saved_callback), 
+                    self); */
+    g_signal_connect (GTK_TEXT_BUFFER (sBuffer), "changed",
+                    G_CALLBACK (x_notebook_mark_file_as_saved_callback),
+                    self);
+
 }
 
 /*
@@ -282,7 +372,7 @@ x_notebook_append (XNotebook * self)
 void
 x_notebook_refresh (XNotebook * self)
 {
-    gtk_widget_hide (GTK_WIDGET(self));
-    gtk_widget_show_all (GTK_WIDGET(self));
+    gtk_widget_hide (GTK_WIDGET (self));
+    gtk_widget_show_all (GTK_WIDGET (self));
 }
 
