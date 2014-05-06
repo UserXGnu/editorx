@@ -17,11 +17,11 @@
 # We have the following line for use by intltoolize:
 # INTLTOOL_MAKEFILE
 
-GETTEXT_PACKAGE = xeditor
-PACKAGE = xeditor
-VERSION = 0.3.1
+GETTEXT_PACKAGE = editorx
+PACKAGE = editorx
+VERSION = 0.1
 
-SHELL = /bin/bash
+SHELL = /bin/sh
 
 srcdir = .
 top_srcdir = ..
@@ -36,7 +36,7 @@ libdir = ${exec_prefix}/lib
 DATADIRNAME = share
 itlocaledir = $(prefix)/$(DATADIRNAME)/locale
 subdir = po
-install_sh = ${SHELL} /home/userx/Documentos/Dropbox/EDITOR/stable/install-sh
+install_sh = ${SHELL} /home/userx/Documents/Dropbox/Files/Programming/Projects/EditorX/Stable/install-sh
 # Automake >= 1.8 provides $(MKDIR_P).
 # Until it can be supposed, use the safe fallback:
 mkdir_p = $(install_sh) -d

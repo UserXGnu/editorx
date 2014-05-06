@@ -192,6 +192,8 @@ search_app * x_editor_search_new(XEditor * xeditor) {
 		gtk_button_set_image (GTK_BUTTON(search->r_button), image[3]);
 		gtk_button_set_image (GTK_BUTTON(search->rn_button), image[4]);
 
+		//gtk_button_set_relief (
+
 		search->SourceView = GTK_WIDGET(x_scrolled_get_source_view (xeditor->scrolled) );
 
 		search->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);

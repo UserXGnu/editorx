@@ -8,35 +8,38 @@ AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
-	$(XEDITOR_CFLAGS)
+	$(EDITORX_CFLAGS)
 
 AM_CFLAGS =\
 	 -Wall\
 	 -g
 
-bin_PROGRAMS = xeditor
+bin_PROGRAMS = editorx
 
-xeditor_SOURCES = \
+editorx_SOURCES = \
 	main.c \
-	menubar.h \
-	scrolled.h \
-	statusbar.h \
-	toolbar.h \
-	window.h \
 	xeditor.h \
-	scrolled.c \
-	menubar.c \
-	statusbar.c \
-	toolbar.c \
-	window.c \
 	xeditor.c \
+	window.h \
+	window.c \
+	toolbar.h \
+	toolbar.c \
+	statusbar.h \
+	statusbar.c \
 	search.h \
 	search.c \
+	scrolled.h \
+	scrolled.c \
+	menubar.h \
+	menubar.c \
 	definitions.h
 
-xeditor_LDFLAGS = \
+
+editorx_LDFLAGS = \
 	-Wl,--export-dynamic
 
-xeditor_LDADD = $(XEDITOR_LIBS)
+editorx_LDADD = $(EDITORX_LIBS)
+
+
 
 

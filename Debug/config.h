@@ -5,7 +5,7 @@
 #define ENABLE_NLS 1
 
 /* GETTEXT package name */
-#define GETTEXT_PACKAGE "xeditor"
+#define GETTEXT_PACKAGE "editorx"
 
 /* Define to 1 if you have the `bind_textdomain_codeset' function. */
 #define HAVE_BIND_TEXTDOMAIN_CODESET 1
@@ -57,28 +57,28 @@
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
-#define PACKAGE "xeditor"
+#define PACKAGE "editorx"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "xeditor"
+#define PACKAGE_NAME "editorx"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "xeditor 0.2.1.2"
+#define PACKAGE_STRING "editorx 0.1"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "xeditor"
+#define PACKAGE_TARNAME "editorx"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.2.1.2"
+#define PACKAGE_VERSION "0.1"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.2.1.2"
+#define VERSION "0.1"
