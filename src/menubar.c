@@ -373,7 +373,7 @@ void x_menu_about_dialog_callback (GtkWidget * widget, gpointer data) {
 	GdkPixbuf * pixbuf;
 	
 	GtkWidget * dialog = gtk_about_dialog_new ();
-	const gchar * authors[] = {"Victor Flores (UserX)"," Marcelo lima (Binary)", NULL};
+	const gchar * authors[] = {"Victor Flores (UserX)", NULL};
 	const gchar * artists[] = {"Afonsto Dantas (Fonfas)", NULL};
 	gchar * license = 
 		"Copyright (C) 2013 UserX <userx.gnu@gmail.com>\n\n"
